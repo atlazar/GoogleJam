@@ -6,9 +6,6 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 
-/**
- * Created by andrey on 3/25/17.
- */
 public class TheLastWord implements Problem {
 
     public TheLastWord() {
