@@ -1,0 +1,8 @@
+# Created by .ignore support plugin (hsz.mobi)
+
+#Idea files
+GoogleJam.iml
+.idea/
+
+#Target
+target/
