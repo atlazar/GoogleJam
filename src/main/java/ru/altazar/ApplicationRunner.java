@@ -21,7 +21,7 @@ public class ApplicationRunner {
                 .getTopLevelClassesRecursive("ru.altazar")
                 .stream()
                 .map(ClassInfo::load)
-                .filter(ApplicationRunner::isProblem)
+                .filter(ApplicationRunner::isConcreteProblem)
                 .filter(ApplicationRunner::hasDefaultConstructor)
                 .collect(Collectors.toMap(
                         aClass -> aClass.getSimpleName().toLowerCase(),
@@ -41,9 +41,7 @@ public class ApplicationRunner {
 
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
              BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out))) {
-
-            int cases = Integer.parseInt(reader.readLine());
-            problem.solve(cases, reader, writer);
+            problem.solve(reader, writer);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -66,8 +64,8 @@ public class ApplicationRunner {
         return false;
     }
 
-    private static boolean isProblem(Class<?> aClass) {
-        return Problem.class.isAssignableFrom(aClass);
+    private static boolean isConcreteProblem(Class<?> aClass) {
+        return aClass != Problem.class && Problem.class.isAssignableFrom(aClass);
     }
 
 }

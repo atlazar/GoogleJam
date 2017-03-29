@@ -3,25 +3,14 @@ package ru.altazar.contest2016.round1a;
 import ru.altazar.Problem;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 
-public class TheLastWord implements Problem {
-
-    public TheLastWord() {
-    }
+public class TheLastWord extends Problem {
 
     @Override
-    public void solve(int cases, BufferedReader reader, BufferedWriter writer) throws IOException {
-        for (int i = 1; i <= cases; i++) {
-            String solution = playSingleRound(reader.readLine());
-            writer.write(String.format("Case #%d: %s\n", i, solution));
-        }
-    }
-
-    private static String playSingleRound(String word) {
+    protected String solveCase(BufferedReader reader) throws IOException {
         StringBuilder lastWord = new StringBuilder();
-        for (char letter : word.toCharArray()) {
+        for (char letter : reader.readLine().toCharArray()) {
 
             boolean append = true;
             for (int i = 0; i < lastWord.length(); i++) {
@@ -39,4 +28,5 @@ public class TheLastWord implements Problem {
         }
         return lastWord.toString();
     }
+
 }

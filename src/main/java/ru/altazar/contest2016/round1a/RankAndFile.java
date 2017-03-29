@@ -3,25 +3,16 @@ package ru.altazar.contest2016.round1a;
 import ru.altazar.Problem;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class RankAndFile implements Problem {
-
+public class RankAndFile extends Problem {
 
     @Override
-    public void solve(int cases, BufferedReader reader, BufferedWriter writer) throws IOException {
-        for (int i = 1; i <= cases; i++) {
-            writer.write(String.format("Case #%d: %s\n", i,
-                    processCase(reader, writer)));
-        }
-    }
-
-    private String processCase(BufferedReader reader, BufferedWriter writer) throws IOException {
+    protected String solveCase(BufferedReader reader) throws IOException {
         int squareSize = Integer.parseInt(reader.readLine());
 
         List<List<Integer>> lines = new ArrayList<>();
