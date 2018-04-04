@@ -3,6 +3,8 @@
 #Idea files
 GoogleJam.iml
 .idea/
+.gradle/
 
 #Target
 target/
+build/
