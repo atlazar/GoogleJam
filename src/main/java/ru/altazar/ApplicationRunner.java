@@ -1,21 +1,43 @@
 package ru.altazar;
 
 import ru.altazar.contest2016.round1a.BestFriendForever;
+import ru.altazar.contest2016.round1a.RankAndFile;
+import ru.altazar.contest2016.round1a.TheLastWord;
+import ru.altazar.contest2016.round1b.GettingTheDigits;
+import ru.altazar.contest2016.round1c.SenateEvacuation;
+import ru.altazar.contest2016.round1c.Slides;
+import ru.altazar.contest2017.qualification.BathroomStalls;
+import ru.altazar.contest2017.qualification.OversizedPancakeFlipper;
+import ru.altazar.contest2017.qualification.TidyNumbers;
 
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class ApplicationRunner {
 
-    private static final Map<String, Problem> PROBLEMS = new HashMap<>();
+    private final static Map<String, Problem> PROBLEMS;
 
     static {
-        register(new BestFriendForever());
-    }
-
-    private static void register(Problem problem) {
-        PROBLEMS.put(problem.getClass().getSimpleName().toLowerCase(), problem);
+        PROBLEMS = Stream.of(
+            //2016
+            new BestFriendForever(),
+            new RankAndFile(),
+            new TheLastWord(),
+            new GettingTheDigits(),
+            new SenateEvacuation(),
+            new Slides(),
+            //2017
+            new OversizedPancakeFlipper(),
+            new TidyNumbers(),
+            new BathroomStalls()
+        ).collect(Collectors.toMap(
+            p -> p.getClass().getSimpleName().toLowerCase(),
+            Function.identity()
+        ));
     }
 
     public static void main(String[] args) {
