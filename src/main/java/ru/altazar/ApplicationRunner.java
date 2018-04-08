@@ -9,6 +9,8 @@ import ru.altazar.contest2016.round1c.Slides;
 import ru.altazar.contest2017.qualification.BathroomStalls;
 import ru.altazar.contest2017.qualification.OversizedPancakeFlipper;
 import ru.altazar.contest2017.qualification.TidyNumbers;
+import ru.altazar.contest2018.qualification.TroubleSort;
+import ru.altazar.contest2018.qualification.UniverseProblem;
 
 import java.io.*;
 import java.util.HashMap;
@@ -33,7 +35,10 @@ public class ApplicationRunner {
             //2017
             new OversizedPancakeFlipper(),
             new TidyNumbers(),
-            new BathroomStalls()
+            new BathroomStalls(),
+            //2018
+            new UniverseProblem(),
+            new TroubleSort()
         ).collect(Collectors.toMap(
             p -> p.getClass().getSimpleName().toLowerCase(),
             Function.identity()
